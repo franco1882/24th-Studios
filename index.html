@@ -3,56 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canva Embed</title>
+    <title>Animación de Imágenes</title>
     <style>
-        /* Asegura que el iframe ocupe toda la pantalla */
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
         }
         .container {
             position: relative;
-            width: 100vw;
-            height: 100vh;
-            box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .container iframe {
-            position: absolute;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            border: none;
         }
-        .download-link {
+        .image {
             position: absolute;
-            bottom: 1em;
-            left: 50%;
-            transform: translateX(-50%);
-            text-decoration: none;
-            color: #007bff;
-            font-size: 1em;
-            background-color: #fff;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: move 2s forwards;
         }
-        .download-link::after {
-            content: "⬇️"; /* Flecha hacia abajo */
-            margin-left: 0.5em;
+        .image1 {
+            left: 0;
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/a/a7/Ffxboxart.jpg');
+        }
+        .image2 {
+            right: 0;
+            background-image: url('https://makosedai.com/wp-content/uploads/2013/03/BandaSonoraFinalFantasyX.jpg');
+        }
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <iframe loading="lazy" src="https://www.canva.com/design/DAGPXNZs_9k/fXTavqJT3_DX5mRaNXy6TA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-        <a href="https://www.canva.com/design/DAGPXNZs_9k/fXTavqJT3_DX5mRaNXy6TA/view?utm_content=DAGPXNZs_9k&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" class="download-link">
-            New Products and Services Business Website in Violet Dark Blue Neon Pink Gradient Tech Style de FranGamerHD 2000
-        </a>
+        <div class="image image1"></div>
+        <div class="image image2"></div>
     </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = 'pagina_principal.html';
+        }, 2000);
+    </script>
 </body>
 </html>
